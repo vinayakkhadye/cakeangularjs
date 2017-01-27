@@ -17,10 +17,10 @@ class LoginController extends AppController
         $this->autoRender   = false;   
     }
 
-    public function index()
+    public function index($user_id,$password)
     {
-        $user_id    = $this->request->query['user_id'];
-        $password   = $this->request->query['password'];
+        #$user_id    = $this->request->query['user_id'];
+        #$password   = $this->request->query['password'];
         
         $userExists = $this->Login->getUser($user_id,$password);
         return $userExists;
