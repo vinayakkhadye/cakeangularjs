@@ -25,12 +25,15 @@ class OrderController extends AppController
         return json_encode($Orders);
     }
     
-    public function updateDispatchDate( $date, $id)
+    public function updateDispatchDate($date, $id)
     {
-        $set = array('deliver_date'=> date("Y-m-d",strtotime($date)) );
-        $condition  = array('id'=>$id);
-        $rs = $this->Order->updateOrder($set, $condition);
-        return json_encode($rs);
+        if( $date && $id)
+        {
+            $set = array('deliver_date'=> date("Y-m-d",strtotime($date)) );
+            $condition  = array('id'=>$id);
+            $rs = $this->Order->updateOrder($set, $condition);
+            return json_encode($rs);
+        }
     }
     
     public function getOrdersChartForMonth($month='previous')
