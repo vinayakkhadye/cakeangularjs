@@ -21,9 +21,10 @@ class LoginController extends AppController
     {
         #$user_id    = $this->request->query['user_id'];
         #$password   = $this->request->query['password'];
-        
         if( isset($user_id) && isset($password) )
-        $userExists = $this->Login->getUser($user_id,$password);
-        return json_encode($userExists);
+        {
+            $userExists = $this->Login->getUser($user_id,$password);
+            return json_encode($userExists);
+        }
     }
 }
