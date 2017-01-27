@@ -27,7 +27,7 @@ class OrderController extends AppController
     
     public function updateDispatchDate($date, $id)
     {
-        if( $date && $id)
+        if( isset($date) && isset($id))
         {
             $set = array('deliver_date'=> date("Y-m-d",strtotime($date)) );
             $condition  = array('id'=>$id);
